@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Property Listings</title>
+</head>
+<body>
+    <h1>🏠 Property Listings (Cached View)</h1>
+    
+    <p>
+        <strong>Rendered Time:</strong> {{ "now"|date:"H:i:s" }} 
+        <br>
+        (If the time **does not change** on refresh, the view cache is working!)
+    </p>
+
+    <hr>
+
+    {% if properties %}
+        <h2>Found {{ properties|length }} Properties:</h2>
+        <ul>
+            {% for property in properties %}
+            <li>
+                <strong>{{ property.title }}</strong> 
+                <small>({{ property.location }})</small>
+                <br>
+                Price: ${{ property.price }}
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No properties found. Run a script to populate the database!</p>
+    {% endif %}
+
+</body>
+</html>

@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_redis',
+    'properties',
 ]
 
 MIDDLEWARE = [
@@ -79,6 +80,7 @@ DATABASES = {
         'NAME': 'alx_cache_db',      
         'USER': 'alx_user',          
         'PASSWORD': 'alx_password',  
+        # 'HOST': '127.0.0.1',
         'HOST': 'postgres',          
         'PORT': '5432',
     }
@@ -88,6 +90,7 @@ CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
         "LOCATION": "redis://redis:6379/1", 
+        # "LOCATION": "redis://127.0.0.1:6379/1",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
