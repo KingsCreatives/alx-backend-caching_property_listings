@@ -74,23 +74,30 @@ WSGI_APPLICATION = 'alx_backend_caching_property_listings.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'alx_cache_db',      
+#         'USER': 'alx_user',          
+#         'PASSWORD': 'alx_password',  
+#         # 'HOST': '127.0.0.1',
+#         'HOST': 'postgres',          
+#         'PORT': '5432',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'alx_cache_db',      
-        'USER': 'alx_user',          
-        'PASSWORD': 'alx_password',  
-        # 'HOST': '127.0.0.1',
-        'HOST': 'postgres',          
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3', 
+        'NAME': BASE_DIR / 'db.sqlite3',    
     }
 }
 
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://redis:6379/1", 
-        # "LOCATION": "redis://127.0.0.1:6379/1",
+        # "LOCATION": "redis://redis:6379/1", 
+        "LOCATION": "redis://127.0.0.1:6379/1",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
